@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-import os, json
+import os
+import json
 from django.core.exceptions import ImproperlyConfigured
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -47,8 +48,9 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
-INSTALLED_APPS = [
+# 보기쉽게 앱들을 구분
+# 미리 구성된 장고 앱
+DJANGO_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -56,6 +58,14 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 ]
+
+# 프로젝트에서 생성한 앱들
+PROJECT_APPS = [
+    "users.apps.UsersConfig",
+]
+
+INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -136,3 +146,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = "/static/"
+
+# users app의 user객체
+AUTH_USER_MODEL = "users.User"
