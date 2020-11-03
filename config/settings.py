@@ -69,7 +69,7 @@ PROJECT_APPS = [
     "conversations.apps.ConversationsConfig",
 ]
 
-THIRD_PARTY_APPS = ["django_countries"]
+THIRD_PARTY_APPS = ["django_countries", "django_seed"]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
 
@@ -89,7 +89,7 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -159,3 +159,6 @@ AUTH_USER_MODEL = "users.User"
 
 # 사진 경로
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
+
+MEDIA_URL = "/media/"
+# 경로 시작에 / 를 붙이면 절대경로로 root에 붙는다.
