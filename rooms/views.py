@@ -1,4 +1,4 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from . import models
 
 
@@ -10,3 +10,10 @@ class HomeView(ListView):
     paginate_by = 10
     paginate_orphans = 5
     context_object_name = "rooms"
+
+
+class RoomDetail(DetailView):
+
+    """ RoomDetail Definition """
+
+    model = models.Room
