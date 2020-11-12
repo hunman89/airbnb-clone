@@ -154,6 +154,8 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+
 # users app의 user객체
 AUTH_USER_MODEL = "users.User"
 

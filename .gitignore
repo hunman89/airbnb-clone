@@ -249,3 +249,4 @@ uploads/
 
 secrets.json
 # End of https://www.toptal.com/developers/gitignore/api/python,django,windows,vscode
+node_modules
